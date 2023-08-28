@@ -1,0 +1,11 @@
+openapi: 3.1.0
+info:
+  title: Mi API
+  version: 1.0.0
+paths:
+  /mi-ruta:
+    get:
+      summary: Obtener información
+      responses:
+        '200':
+          description: Respuesta exitosa

@@ -10,15 +10,16 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
 
-	<groupId>com.sgcharameli</groupId>
+  <groupId>com.sgcharameli</groupId>
   <artifactId>sbdemo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>sbdemo</name>
-	<description>Demo project for Spring Boot</description>
+  <description>Demo project for Spring Boot</description>
 
   <properties>
     <java.version>17</java.version>
     <jacoco-maven-plugin.version>0.8.10</jacoco-maven-plugin.version>
+
     <sonar.organization>sgcharameli-github</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
   </properties>
@@ -34,6 +35,13 @@
       <artifactId>lombok</artifactId>
       <optional>true</optional>
     </dependency>
+
+    <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+      <version>2.2.0</version>
+    </dependency>
+
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
@@ -78,6 +86,69 @@
             </configuration>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>io.swagger.codegen.v3</groupId>
+        <artifactId>swagger-codegen-maven-plugin</artifactId>
+        <version>3.0.46</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <inputSpec>src/main/resources/api.yaml</inputSpec>
+              <language>spring</language>
+              <typeMappings>
+                <typeMapping>date=java.time.LocalDate</typeMapping>
+              </typeMappings>
+              <output>./</output>
+              <modelPackage>com.sgcharameli.sbdemo.adapters.rest.resources.dto</modelPackage>
+              <apiPackage>com.sgcharameli.sbdemo.adapters.rest.resources.spec</apiPackage>
+              <modelNameSuffix>Dto</modelNameSuffix>
+              <generateApiDocumentation>false</generateApiDocumentation>
+              <generateModelDocumentation>false</generateModelDocumentation>
+              <configOptions>
+                <jakarta>true</jakarta>
+                <sourceFolder>src/main/java</sourceFolder>
+                <interfaceOnly>true</interfaceOnly>
+                <dateLibrary>java</dateLibrary>
+              </configOptions>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>auto-clean</id>
+            <phase>clean</phase>
+            <goals>
+              <goal>clean</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <filesets>
+            <fileset>
+              <directory>src/main/java/com/sgcharameli/sbdemo/adapters/rest/resources/spec</directory>
+              <followSymlinks>false</followSymlinks>
+              <useDefaultExcludes>false</useDefaultExcludes>
+              <includes>
+                <include>*.java</include>
+              </includes>
+            </fileset>
+            <fileset>
+              <directory>src/main/java/com/sgcharameli/sbdemo/adapters/rest/resources/dto</directory>
+              <followSymlinks>false</followSymlinks>
+              <useDefaultExcludes>false</useDefaultExcludes>
+              <includes>
+                <include>*.java</include>
+              </includes>
+            </fileset>
+          </filesets>
+        </configuration>
       </plugin>
     </plugins>
   </build>
