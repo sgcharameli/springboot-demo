@@ -1,6 +1,5 @@
 package com.sgcharameli.sbdemo;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -8,11 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 class SbdemoApplicationTests {
 
   @Test
-  void contextLoads() {
-    Assertions.assertDoesNotThrow(this::doNotThrowException);
+  void contexLoadRunMain() {
+    SbdemoApplication.main(new String[] {});
   }
 
-  private void doNotThrowException() {
-    //This method will never throw exception
-  }
 }
