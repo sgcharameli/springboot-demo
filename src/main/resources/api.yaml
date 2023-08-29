@@ -6,27 +6,145 @@ paths:
   /stocks:
     get:
       summary: Get all stocks
-      description: Retrieves the current state of the board and the winner.
+      description: Retrieves all the stocks. Paginated.
       tags:
         - Stocks
       operationId: getAllStocks
       responses:
         200:
           description: Success
+    post:
+      summary: Create new stock
+      description: Creates new stock provided.
+      tags:
+        - Stocks
+      operationId: createStock
+      responses:
+        201:
+          description: Success
   /stocks/{stockId}:
+    parameters:
+      - name: stockId
+        in: path
+        description: Stock Identifier
+        required: true
+        schema:
+          type: integer
+          format: int64
     get:
-      summary: Get a stock by stock identifier
-      description: Retrieves the current state of the board and the winner.
+      summary: Get stock by identifier
+      description: Retrieves the stock by its identifier provided.
       tags:
         - Stocks
       operationId: getStockById
       responses:
-        "200":
+        200:
           description: Success
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/stock'
+        400:
+          description: Stock by id is not valid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+        404:
+          description: Stock by id not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+    put:
+      summary: Update stock by identifier
+      description: Fully updates the stock by its identifier provided.
+      tags:
+        - Stocks
+      operationId: putStockById
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/stock'
+        400:
+          description: Stock by id is not valid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+        404:
+          description: Stock by id not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+    patch:
+      summary: Patches stock by identifier
+      description: Partially updates the stock by its identifier provided.
+      tags:
+        - Stocks
+      operationId: patchStockById
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/stock'
+        400:
+          description: Stock by id is not valid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+        404:
+          description: Stock by id not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+    delete:
+      summary: Delete stock by identifier
+      description: Delete the stock by its identifier provided.
+      tags:
+        - Stocks
+      operationId: deleteStockById
+      responses:
+        204:
+          description: Success
+        400:
+          description: Stock by id is not valid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+        404:
+          description: Stock by id not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
         500:
           description: Internal server error
           content:

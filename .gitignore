@@ -34,5 +34,6 @@ build/
 
 ### swagger generated ###
 .swagger-codegen/
+.openapi-generator/
 src/main/java/**/adapters/rest/resources/spec/
 src/main/java/**/adapters/rest/resources/dto/
