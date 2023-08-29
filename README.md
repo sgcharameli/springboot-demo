@@ -28,5 +28,7 @@ Demo project for Spring Boot Rest API.
 
 - api specification with openapi
 - api resources generation from openapi descriptor
-- flyway
 - lombok
+- mapstruct
+- flyway
+- docker

@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### swagger generated ###
+### .swagger-codegen/
+src/main/java/**/adapters/rest/resources/spec/
+src/main/java/**/adapters/rest/resources/dto/

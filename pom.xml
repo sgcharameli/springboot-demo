@@ -112,7 +112,7 @@
                 <jakarta>true</jakarta>
                 <sourceFolder>src/main/java</sourceFolder>
                 <interfaceOnly>true</interfaceOnly>
-                <dateLibrary>java</dateLibrary>
+                <dateLibrary>java8</dateLibrary>
               </configOptions>
             </configuration>
           </execution>
