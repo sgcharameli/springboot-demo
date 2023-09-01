@@ -1,0 +1,95 @@
+paths:
+  /stocks:
+    get:
+      summary: Get all stocks
+      description: Retrieves all the stocks. Paginated.
+      tags:
+        - Stocks
+      operationId: getAllStocks
+      responses:
+        200:
+          $ref: '../stocks/responses.yaml#/components/responses/PaginatedStocks'
+        400:
+          $ref: '../commons-responses.yaml#/components/responses/BadRequest'
+        500:
+          $ref: '../commons-responses.yaml#/components/responses/InternalServerError'
+    post:
+      summary: Create new stock
+      description: Creates new stock provided.
+      tags:
+        - Stocks
+      operationId: createStock
+      requestBody:
+        $ref: '../stocks/request-bodies.yaml#/components/requestBodies/Stock'
+      responses:
+        201:
+          $ref: '../commons-responses.yaml#/components/responses/NoContent'
+        400:
+          $ref: '../commons-responses.yaml#/components/responses/BadRequest'
+        500:
+          $ref: '../commons-responses.yaml#/components/responses/InternalServerError'
+  /stocks/{stockId}:
+    get:
+      summary: Get stock by identifier
+      description: Retrieves the stock by its identifier provided.
+      tags:
+        - Stocks
+      operationId: getStockById
+      responses:
+        200:
+          $ref: '../stocks/responses.yaml#/components/responses/Stock'
+        400:
+          $ref: '../commons-responses.yaml#/components/responses/BadRequest'
+        404:
+          $ref: '../commons-responses.yaml#/components/responses/NotFound'
+        500:
+          $ref: '../commons-responses.yaml#/components/responses/InternalServerError'
+    put:
+      summary: Update stock by identifier
+      description: Fully updates the stock by its identifier provided.
+      tags:
+        - Stocks
+      operationId: putStockById
+      requestBody:
+        $ref: '../stocks/request-bodies.yaml#/components/requestBodies/Stock'
+      responses:
+        200:
+          $ref: '../stocks/responses.yaml#/components/responses/Stock'
+        400:
+          $ref: '../commons-responses.yaml#/components/responses/BadRequest'
+        404:
+          $ref: '../commons-responses.yaml#/components/responses/NotFound'
+        500:
+          $ref: '../commons-responses.yaml#/components/responses/InternalServerError'
+    patch:
+      summary: Patches stock by identifier
+      description: Partially updates the stock by its identifier provided.
+      tags:
+        - Stocks
+      operationId: patchStockById
+      requestBody:
+        $ref: '../stocks/request-bodies.yaml#/components/requestBodies/Stock'
+      responses:
+        200:
+          $ref: '../stocks/responses.yaml#/components/responses/Stock'
+        400:
+          $ref: '../commons-responses.yaml#/components/responses/BadRequest'
+        404:
+          $ref: '../commons-responses.yaml#/components/responses/NotFound'
+        500:
+          $ref: '../commons-responses.yaml#/components/responses/InternalServerError'
+    delete:
+      summary: Delete stock by identifier
+      description: Delete the stock by its identifier provided.
+      tags:
+        - Stocks
+      operationId: deleteStockById
+      responses:
+        204:
+          $ref: '../commons-responses.yaml#/components/responses/NoContent'
+        400:
+          $ref: '../commons-responses.yaml#/components/responses/BadRequest'
+        404:
+          $ref: '../commons-responses.yaml#/components/responses/NotFound'
+        500:
+          $ref: '../commons-responses.yaml#/components/responses/InternalServerError'

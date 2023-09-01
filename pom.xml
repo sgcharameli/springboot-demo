@@ -103,7 +103,7 @@
             <goal>generate</goal>
           </goals>
           <configuration>
-            <inputSpec>src/main/resources/api.yaml</inputSpec>
+            <inputSpec>src/main/resources/rest-api/openapi.yaml</inputSpec>
             <generatorName>spring</generatorName>
             <apiPackage>com.sgcharameli.sbdemo.adapters.rest.resources.spec</apiPackage>
             <modelPackage>com.sgcharameli.sbdemo.adapters.rest.resources.dto</modelPackage>

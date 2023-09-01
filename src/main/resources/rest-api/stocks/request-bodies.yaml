@@ -1,0 +1,8 @@
+components:
+  requestBodies:
+    Stock:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: './schemas.yaml#/components/schemas/Stock'

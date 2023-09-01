@@ -1,0 +1,33 @@
+openapi: 3.0.3
+
+info:
+  title: Spring Boot Demo API
+  version: 1.0.0
+
+servers:
+  - url: https://{username}.server.com:{port}/{version}
+    variables:
+      username:
+        default: demo
+        description: This value is assigned by the service provider.
+      port:
+        enum:
+          - "8443"
+          - "443"
+        default: "8443"
+      version:
+        default: v1
+
+paths:
+  /stocks:
+    $ref: './stocks/paths.yaml#/paths/~1stocks'
+  /stocks/{stockId}:
+    $ref: './stocks/paths.yaml#/paths/~1stocks~1{stockId}'
+    parameters:
+      - name: stockId
+        in: path
+        description: Stock Identifier
+        required: true
+        schema:
+          type: integer
+          format: int64

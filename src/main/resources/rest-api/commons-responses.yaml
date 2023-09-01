@@ -1,0 +1,22 @@
+components:
+  responses:
+    NoContent:
+      description: Success
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: './commons-schemas.yaml#/components/schemas/Error'
+    NotFound:
+      description: The specified resource was not found
+      content:
+        application/json:
+          schema:
+            $ref: './commons-schemas.yaml#/components/schemas/Error'
+    InternalServerError:
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: './commons-schemas.yaml#/components/schemas/Error'

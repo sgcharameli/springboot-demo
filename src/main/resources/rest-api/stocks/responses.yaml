@@ -1,0 +1,14 @@
+components:
+  responses:
+    PaginatedStocks:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '../stocks/schemas.yaml#/components/schemas/PageableStock'
+    Stock:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '../stocks/schemas.yaml#/components/schemas/Stock'

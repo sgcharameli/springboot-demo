@@ -22,8 +22,6 @@ Demo project for Spring Boot Rest API.
 ---
 
 ## TODOs
-- to implement paginated response stock in get /stock
-- to implement request body in post, put & patch /stock
 - to implement multipart for upload files
 - review deployed api documentation
 - move pom versions to properties section
