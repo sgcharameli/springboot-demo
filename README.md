@@ -22,8 +22,10 @@ Demo project for Spring Boot Rest API.
 ---
 
 ## TODOs
+- separate paths in files
+- refactor path parameter
 - to implement multipart for upload files
-- review deployed api documentation
+- review deployed api documentation and configure server in openapi
 - move pom versions to properties section
 
 ## Comming things
