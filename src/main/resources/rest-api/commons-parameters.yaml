@@ -1,0 +1,32 @@
+parameters:
+  pageQueryParam:
+    name: page
+    in: query
+    description: >
+      the page number of resources to return (default: 1)
+    required: false
+    schema:
+      type: integer
+      format: int32
+      default: 1
+      example: 1
+  perPageQueryParam:
+    name: per_page
+    in: query
+    description: >
+      the number of resources to return in a paginated collection request (default: 50)
+    required: false
+    schema:
+      type: integer
+      format: int32
+      default: 10
+      example: 10
+  orderByQueryParam:
+    name: order_by
+    in: query
+    description: >
+      a field on the resource to order the collection by; each collection will have a different subset of fields that can be sorted by.
+      When collections are ordered by a subset of fields, each field MAY be prepended with "-" to indicate descending order direction. If the field is not prepended, the ordering will default to ascending.
+    required: false
+    schema:
+      type: string

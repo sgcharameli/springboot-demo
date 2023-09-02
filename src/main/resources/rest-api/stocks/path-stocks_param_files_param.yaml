@@ -1,0 +1,18 @@
+paths:
+  /stocks/{stockId}/files/{fileId}:
+    parameters:
+      - $ref: '../stocks/parameters.yaml#/parameters/stockIdPathParam'
+      - $ref: '../stocks/parameters.yaml#/parameters/fieldIdPathParam'
+    get:
+      summary: Get a file of Stock
+      description: Retrieves a specific stock file.
+      tags:
+        - Stocks
+      operationId: getStockFile
+      responses:
+        200:
+          $ref: '../stocks/responses.yaml#/components/responses/PaginatedStocks'
+        400:
+          $ref: '../commons-responses.yaml#/components/responses/BadRequest'
+        500:
+          $ref: '../commons-responses.yaml#/components/responses/InternalServerError'

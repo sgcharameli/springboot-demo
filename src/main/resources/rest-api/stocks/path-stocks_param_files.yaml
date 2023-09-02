@@ -1,0 +1,30 @@
+paths:
+  /stocks/{stockId}/files:
+    get:
+      summary: Get all files of Stock
+      description: Retrieves all the stock files. Paginated.
+      tags:
+        - Stocks
+      operationId: getAllStockFiles
+      responses:
+        200:
+          $ref: '../stocks/responses.yaml#/components/responses/PaginatedStocks'
+        400:
+          $ref: '../commons-responses.yaml#/components/responses/BadRequest'
+        500:
+          $ref: '../commons-responses.yaml#/components/responses/InternalServerError'
+    post:
+      summary: Saves a Stock file
+      description: Saves a Stock file
+      tags:
+        - Stocks
+      operationId: saveStockFile
+      requestBody:
+        $ref: '../stocks/request-bodies.yaml#/components/requestBodies/Stock'
+      responses:
+        201:
+          $ref: '../commons-responses.yaml#/components/responses/NoContent'
+        400:
+          $ref: '../commons-responses.yaml#/components/responses/BadRequest'
+        500:
+          $ref: '../commons-responses.yaml#/components/responses/InternalServerError'

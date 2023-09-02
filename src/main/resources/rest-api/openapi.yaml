@@ -20,14 +20,10 @@ servers:
 
 paths:
   /stocks:
-    $ref: './stocks/paths.yaml#/paths/~1stocks'
+    $ref: './stocks/path-stocks.yaml#/paths/~1stocks'
   /stocks/{stockId}:
-    $ref: './stocks/paths.yaml#/paths/~1stocks~1{stockId}'
-    parameters:
-      - name: stockId
-        in: path
-        description: Stock Identifier
-        required: true
-        schema:
-          type: integer
-          format: int64
+    $ref: './stocks/path-stocks_param.yaml#/paths/~1stocks~1{stockId}'
+  /stocks/{stockId}/files:
+    $ref: './stocks/path-stocks_param_files.yaml#/paths/~1stocks~1{stockId}~1files'
+  /stocks/{stockId}/files/{fileId}:
+    $ref: './stocks/path-stocks_param_files_param.yaml#/paths/~1stocks~1{stockId}~1files~1{fileId}'

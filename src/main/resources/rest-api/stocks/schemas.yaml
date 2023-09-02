@@ -10,8 +10,8 @@ components:
           type: string
           example: 'Mader Group Limited'
         marketCap:
-          type: integer
-          format: int64
+          type: number
+          format: double
           minimum: 0
           description: In MM USD
           example: 1
@@ -26,4 +26,4 @@ components:
           items:
             $ref: './schemas.yaml#/components/schemas/Stock'
         paginationInfo:
-          $ref: '../commons-schemas.yaml#/components/schemas/PaginationInfo'
+          $ref: '../commons-schemas.yaml#/components/schemas/Pagination'

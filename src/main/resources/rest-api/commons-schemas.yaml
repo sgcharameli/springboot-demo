@@ -1,6 +1,6 @@
 components:
   schemas:
-    PaginationInfo:
+    Pagination:
       type: object
       properties:
         pageNumber:

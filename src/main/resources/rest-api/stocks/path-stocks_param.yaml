@@ -1,34 +1,7 @@
 paths:
-  /stocks:
-    get:
-      summary: Get all stocks
-      description: Retrieves all the stocks. Paginated.
-      tags:
-        - Stocks
-      operationId: getAllStocks
-      responses:
-        200:
-          $ref: '../stocks/responses.yaml#/components/responses/PaginatedStocks'
-        400:
-          $ref: '../commons-responses.yaml#/components/responses/BadRequest'
-        500:
-          $ref: '../commons-responses.yaml#/components/responses/InternalServerError'
-    post:
-      summary: Create new stock
-      description: Creates new stock provided.
-      tags:
-        - Stocks
-      operationId: createStock
-      requestBody:
-        $ref: '../stocks/request-bodies.yaml#/components/requestBodies/Stock'
-      responses:
-        201:
-          $ref: '../commons-responses.yaml#/components/responses/NoContent'
-        400:
-          $ref: '../commons-responses.yaml#/components/responses/BadRequest'
-        500:
-          $ref: '../commons-responses.yaml#/components/responses/InternalServerError'
   /stocks/{stockId}:
+    parameters:
+      - $ref: '../stocks/parameters.yaml#/parameters/stockIdPathParam'
     get:
       summary: Get stock by identifier
       description: Retrieves the stock by its identifier provided.
