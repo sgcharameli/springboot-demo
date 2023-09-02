@@ -111,11 +111,14 @@
             <output>.</output>
             <configOptions>
               <interfaceOnly>true</interfaceOnly>
+              <skipDefaultInterface>true</skipDefaultInterface>
               <delegatePattern>false</delegatePattern>
               <useSpringBoot3>true</useSpringBoot3>
               <dateLibrary>java8</dateLibrary>
             </configOptions>
             <modelNameSuffix>Dto</modelNameSuffix>
+            <apiNameSuffix>Api</apiNameSuffix>
+            <generateSupportingFiles>false</generateSupportingFiles>
             <!-- https://github.com/OpenAPITools/openapi-generator/issues/12036#issuecomment-1477404440 -->
             <globalProperties>
               <skipFormModel>false</skipFormModel>

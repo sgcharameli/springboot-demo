@@ -26,9 +26,6 @@ Demo project for Spring Boot Rest API.
 - move pom versions to properties section
 
 ## Comming things
-
-- api specification with openapi
-- api resources generation from openapi descriptor
 - hex arch approach
 - lombok
 - mapstruct
