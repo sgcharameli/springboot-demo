@@ -8,7 +8,7 @@ paths:
       operationId: getAllStockFiles
       responses:
         200:
-          $ref: '../stocks/responses.yaml#/components/responses/PaginatedStocks'
+          $ref: '../stocks/responses.yaml#/components/responses/PaginatedFileDescriptor'
         400:
           $ref: '../commons-responses.yaml#/components/responses/BadRequest'
         500:
@@ -20,7 +20,7 @@ paths:
         - Stocks
       operationId: saveStockFile
       requestBody:
-        $ref: '../stocks/request-bodies.yaml#/components/requestBodies/Stock'
+        $ref: '../stocks/request-bodies.yaml#/components/requestBodies/StockFile'
       responses:
         201:
           $ref: '../commons-responses.yaml#/components/responses/NoContent'
