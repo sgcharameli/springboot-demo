@@ -5,6 +5,7 @@ info:
   version: 1.0.0
 
 servers:
+  - url: http://localhost:8080
   - url: https://{username}.server.com:{port}/{version}
     variables:
       username:

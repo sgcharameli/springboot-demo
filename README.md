@@ -21,13 +21,23 @@ Demo project for Spring Boot Rest API.
 
 ---
 
+### Available Swagger-ui
+
+http://localhost:8080/swagger-ui/index.html
+
 ## TODOs
-- review deployed api documentation and configure server in openapi
 - move pom versions to properties section
 
 ## Comming things
-- hex arch approach
 - lombok
 - mapstruct
+- spring security
+  - https://stackoverflow.com/a/75752381/2804667
 - flyway
-- docker
+- Exception Handlers
+- dockers
+- spring profiles
+
+## References
+https://springdoc.org/#what-is-a-proper-way-to-set-up-swagger-ui-to-use-provided-spec-yml
+https://stackoverflow.com/a/64377172/2804667

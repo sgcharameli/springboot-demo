@@ -1,0 +1,20 @@
+
+#springdoc.swagger-ui.url=/stocks/openapi.yaml
+
+
+#springdoc.pathsToMatch=**
+#springdoc.enable-native-support=true
+
+
+#springdoc:
+#  swagger-ui.path: swagger-ui
+#  api-docs.path: /pets
+
+  # Specify the path of the OpenAPI documentation
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: true
+    path: /
+    url: /rest-api/openapi.yaml
