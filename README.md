@@ -20,3 +20,23 @@ Demo project for Spring Boot Rest API.
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=sgcharameli-github_springboot-demo&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=sgcharameli-github_springboot-demo)
 
 ---
+
+### Available Swagger-ui
+
+http://localhost:8080/swagger-ui/index.html
+
+## TODOs
+- 
+
+## Comming things
+- mapstruct
+- spring security
+  - https://stackoverflow.com/a/75752381/2804667
+- flyway
+- Exception Handlers
+- dockers
+- spring profiles
+
+## References
+https://springdoc.org/#what-is-a-proper-way-to-set-up-swagger-ui-to-use-provided-spec-yml
+https://stackoverflow.com/a/64377172/2804667

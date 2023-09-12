@@ -1,0 +1,14 @@
+components:
+  requestBodies:
+    Stock:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: './schemas.yaml#/components/schemas/Stock'
+    StockFile:
+      required: true
+      content:
+        multipart/form-data:
+          schema:
+            $ref: './schemas.yaml#/components/schemas/StockFile'

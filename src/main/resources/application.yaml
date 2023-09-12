@@ -1,0 +1,8 @@
+
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: true
+    path: /
+    url: /rest-api/openapi.yaml

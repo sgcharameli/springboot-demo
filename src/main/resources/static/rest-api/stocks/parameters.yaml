@@ -1,0 +1,25 @@
+parameters:
+  stockIdPathParam:
+    name: stockId
+    in: path
+    description: Stock Identifier
+    required: true
+    schema:
+      type: integer
+      format: int64
+  fieldIdPathParam:
+    name: fieldId
+    in: path
+    description: File Identifier
+    required: true
+    schema:
+      type: string
+      format: uuid
+  countryQueryParam:
+    name: country
+    in: query
+    description: Stock Company Country
+    required: false
+    schema:
+      type: string
+      example: 'Australia'

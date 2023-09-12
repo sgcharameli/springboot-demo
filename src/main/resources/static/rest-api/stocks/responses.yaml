@@ -1,0 +1,26 @@
+components:
+  responses:
+    Stock:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '../stocks/schemas.yaml#/components/schemas/Stock'
+    PaginatedStocks:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '../stocks/schemas.yaml#/components/schemas/PageableStock'
+    PaginatedFileDescriptor:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '../stocks/schemas.yaml#/components/schemas/PageableFileDescriptor'
+    StockFile:
+      description: Success
+      content:
+        multipart/form-data:
+          schema:
+            $ref: '../stocks/schemas.yaml#/components/schemas/StockFile'

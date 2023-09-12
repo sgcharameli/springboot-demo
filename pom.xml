@@ -10,17 +10,20 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
 
-	<groupId>com.sgcharameli</groupId>
+  <groupId>com.sgcharameli</groupId>
   <artifactId>sbdemo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>sbdemo</name>
-	<description>Demo project for Spring Boot</description>
+  <description>Demo project for Spring Boot</description>
 
   <properties>
     <java.version>17</java.version>
     <jacoco-maven-plugin.version>0.8.10</jacoco-maven-plugin.version>
     <sonar.organization>sgcharameli-github</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    <springdoc-openapi-starter.version>2.2.0</springdoc-openapi-starter.version>
+    <jackson-databind-nullable.version>0.2.6</jackson-databind-nullable.version>
+    <openapi-generator-maven-plugin.version>7.0.0</openapi-generator-maven-plugin.version>
   </properties>
 
   <dependencies>
@@ -34,6 +37,19 @@
       <artifactId>lombok</artifactId>
       <optional>true</optional>
     </dependency>
+
+    <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+      <version>${springdoc-openapi-starter.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.openapitools</groupId>
+      <artifactId>jackson-databind-nullable</artifactId>
+      <version>${jackson-databind-nullable.version}</version>
+    </dependency>
+
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
@@ -79,7 +95,73 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+      <!-- https://openapi-generator.tech/docs/generators/spring/#config-options -->
+      <!-- https://github.com/OpenAPITools/openapi-generator/blob/master/modules/openapi-generator-maven-plugin/README.md -->
+      <groupId>org.openapitools</groupId>
+      <artifactId>openapi-generator-maven-plugin</artifactId>
+      <version>${openapi-generator-maven-plugin.version}</version>
+      <executions>
+        <execution>
+          <goals>
+            <goal>generate</goal>
+          </goals>
+          <configuration>
+            <inputSpec>src/main/resources/static/rest-api/openapi.yaml</inputSpec>
+            <generatorName>spring</generatorName>
+            <apiPackage>com.sgcharameli.sbdemo.adapters.rest.resources.spec</apiPackage>
+            <modelPackage>com.sgcharameli.sbdemo.adapters.rest.resources.dto</modelPackage>
+            <output>.</output>
+            <configOptions>
+              <interfaceOnly>true</interfaceOnly>
+              <skipDefaultInterface>true</skipDefaultInterface>
+              <delegatePattern>false</delegatePattern>
+              <useSpringBoot3>true</useSpringBoot3>
+              <dateLibrary>java8</dateLibrary>
+            </configOptions>
+            <modelNameSuffix>Dto</modelNameSuffix>
+            <apiNameSuffix>Api</apiNameSuffix>
+            <generateSupportingFiles>false</generateSupportingFiles>
+            <!-- https://github.com/OpenAPITools/openapi-generator/issues/12036#issuecomment-1477404440 -->
+            <globalProperties>
+              <skipFormModel>false</skipFormModel>
+            </globalProperties>
+          </configuration>
+        </execution>
+      </executions>
+    </plugin>
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>auto-clean</id>
+            <phase>clean</phase>
+            <goals>
+              <goal>clean</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <filesets>
+            <fileset>
+              <directory>src/main/java/com/sgcharameli/sbdemo/adapters/rest/resources/spec</directory>
+              <followSymlinks>false</followSymlinks>
+              <useDefaultExcludes>false</useDefaultExcludes>
+              <includes>
+                <include>*.java</include>
+              </includes>
+            </fileset>
+            <fileset>
+              <directory>src/main/java/com/sgcharameli/sbdemo/adapters/rest/resources/dto</directory>
+              <followSymlinks>false</followSymlinks>
+              <useDefaultExcludes>false</useDefaultExcludes>
+              <includes>
+                <include>*.java</include>
+              </includes>
+            </fileset>
+          </filesets>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
-
 </project>

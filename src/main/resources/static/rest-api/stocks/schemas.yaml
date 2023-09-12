@@ -1,0 +1,68 @@
+components:
+  schemas:
+    Stock:
+      type: object
+      properties:
+        name:
+          type: string
+          example: 'MAD.AX'
+        company:
+          type: string
+          example: 'Mader Group Limited'
+        marketCap:
+          type: number
+          format: double
+          minimum: 0
+          description: In MM USD
+          example: 1
+        date:
+          type: string
+          format: date-time
+    PageableStock:
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            $ref: './schemas.yaml#/components/schemas/Stock'
+        paginationInfo:
+          $ref: '../commons-schemas.yaml#/components/schemas/Pagination'
+    StockFile:
+      type: object
+      properties:
+        id:
+          required: false
+          type: string
+          format: uuid
+        name:
+          required: true
+          type: string
+        description:
+          required: false
+          type: string
+        file:
+          required: true
+          type: string
+          format: binary
+    FileDescriptor:
+      type: object
+      properties:
+        id:
+          required: false
+          type: string
+          format: uuid
+        name:
+          required: true
+          type: string
+        description:
+          required: false
+          type: string
+    PageableFileDescriptor:
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            $ref: './schemas.yaml#/components/schemas/FileDescriptor'
+        paginationInfo:
+          $ref: '../commons-schemas.yaml#/components/schemas/Pagination'
