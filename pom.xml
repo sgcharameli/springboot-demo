@@ -21,6 +21,9 @@
     <jacoco-maven-plugin.version>0.8.10</jacoco-maven-plugin.version>
     <sonar.organization>sgcharameli-github</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    <springdoc-openapi-starter.version>2.2.0</springdoc-openapi-starter.version>
+    <jackson-databind-nullable.version>0.2.6</jackson-databind-nullable.version>
+    <openapi-generator-maven-plugin.version>7.0.0</openapi-generator-maven-plugin.version>
   </properties>
 
   <dependencies>
@@ -38,13 +41,13 @@
     <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-      <version>2.2.0</version>
+      <version>${springdoc-openapi-starter.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.openapitools</groupId>
       <artifactId>jackson-databind-nullable</artifactId>
-      <version>0.2.6</version>
+      <version>${jackson-databind-nullable.version}</version>
     </dependency>
 
     <dependency>
@@ -97,7 +100,7 @@
       <!-- https://github.com/OpenAPITools/openapi-generator/blob/master/modules/openapi-generator-maven-plugin/README.md -->
       <groupId>org.openapitools</groupId>
       <artifactId>openapi-generator-maven-plugin</artifactId>
-      <version>7.0.0</version>
+      <version>${openapi-generator-maven-plugin.version}</version>
       <executions>
         <execution>
           <goals>

@@ -26,10 +26,9 @@ Demo project for Spring Boot Rest API.
 http://localhost:8080/swagger-ui/index.html
 
 ## TODOs
-- move pom versions to properties section
+- 
 
 ## Comming things
-- lombok
 - mapstruct
 - spring security
   - https://stackoverflow.com/a/75752381/2804667
